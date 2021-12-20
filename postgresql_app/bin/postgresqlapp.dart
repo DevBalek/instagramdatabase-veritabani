@@ -107,6 +107,16 @@ void main() async {
         print('RESPONSE|--- Updated succesfull ---\n');
         break;
 
+      case '6':
+        print('Search userID: ');
+        String? searchUserID = stdin.readLineSync();
+
+        print(
+            await connection.query("SELECT * FROM searchUser($searchUserID)"));
+
+        print('RESPONSE|--- Search procces succesfull ---\n');
+        break;
+
       default:
         exit(0);
     }
@@ -122,6 +132,7 @@ void showList() {
   print('3 - MyFollower Number');
   print('4 - Delete User');
   print('5 - Update User');
+  print('6 - Search User');
 }
 
 void showStatus() {
